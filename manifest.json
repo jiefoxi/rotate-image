@@ -1,18 +1,19 @@
 {
-   "background_page": "background.html",
-   "content_scripts": [ {
-      "js": [ "jquery.min.js", "contentscript.js" ],
-      "matches": [ "http://*/*", "https://*/*" ]
-   } ],
-   "description": "Use right click to rotate images on Chrome.",
-   "icons": {
-      "128": "rotate-128.png",
-      "16": "rotate-16.png",
-      "48": "rotate-48.png"
-   },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDK03Mq1yrZX1tuvzZfHLeqIc9CilDIkKAcDPp/3KzODt2B6caNM1Q6w4XBYk4vcNaxpk1pKtwk3EmVSYoB4LwduyhX/jsJwBKS3Rc/tzHry4+6gCLgn1Dl6KqjRjRttAYmFEs6w3FFuQ0V2Vc+odDwd1DGqQH4ws4yjL18S5z1WwIDAQAB",
-   "name": "IMG Rotate",
-   "permissions": [ "contextMenus", "tabs", "http://*/*", "https://*/*" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "1.0.4"
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [{
+        "js": ["jquery.min.js", "contentscript.js"],
+        "matches": ["http://*/*", "https://*/*"]
+    }],
+    "description": "Use right click to rotate images on Chrome.",
+    "icons": {
+        "128": "rotate-128.png",
+        "16": "rotate-16.png",
+        "48": "rotate-48.png"
+    },
+    "name": "Rotate Image",
+    "permissions": ["contextMenus", "tabs", "http://*/*", "https://*/*"],
+    "version": "1.0",
+    "manifest_version": 2
 }
