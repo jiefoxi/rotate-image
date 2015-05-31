@@ -1,14 +1,10 @@
 var selectedImage = null;
-$("*", document.body).mousedown(function (event) {
-    switch (event.which) {
-        case 3:
-            selectedImage = $(this).get(0);
-            event.stopPropagation();
-            break;
-        default:
-            break;
+
+document.addEventListener("mousedown", function (event) {
+    if (event.button == 2) { // right click
+        selectedImage = event.target;
     }
-});
+}, true);
 
 chrome.extension.onRequest.addListener(onRequest);
 

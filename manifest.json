@@ -3,7 +3,7 @@
         "scripts": ["background.js"]
     },
     "content_scripts": [{
-        "js": ["jquery.min.js", "contentscript.js"],
+        "js": ["contentscript.js"],
         "matches": ["http://*/*", "https://*/*"]
     }],
     "description": "Use right click to rotate images on Chrome.",
