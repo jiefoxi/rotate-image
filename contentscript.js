@@ -30,7 +30,8 @@ function getCurrentRotation(angle) {
     if (currentDegree && currentDegree != "") {
         var start = currentDegree.indexOf('(');
         var end = currentDegree.indexOf('deg)');
-        angle = parseInt(currentDegree.substring(start + 1, end)) + angle;
+        angle += parseInt(currentDegree.substring(start + 1, end));
+        angle %= 360;
     }
 
     return angle;

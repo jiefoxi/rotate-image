@@ -2,7 +2,7 @@
  * Returns a handler which will open a new window when activated.
  */
 
-function rotateClockWise() {
+function rotateRight() {
     return function(info, tab1) {
         chrome.tabs.getSelected(null, function(tab) {
             chrome.tabs.sendRequest(tab.id, {
@@ -13,7 +13,7 @@ function rotateClockWise() {
     };
 }
 
-function rotateCounterClockWise() {
+function rotateLeft() {
     return function(info, tab1) {
         chrome.tabs.getSelected(null, function(tab) {
             chrome.tabs.sendRequest(tab.id, {
@@ -24,22 +24,22 @@ function rotateCounterClockWise() {
     };
 }
 
-function upright() {
+function rotateDown() {
     return function(info, tab1) {
         chrome.tabs.getSelected(null, function(tab) {
             chrome.tabs.sendRequest(tab.id, {
-                angle: 0,
-                rotation: 'flip'
+                angle: 180,
+                rotation: 'rotate'
             }, function(response) {});
         });
     };
 }
 
-function upsideDown() {
+function rotateReset() {
     return function(info, tab1) {
         chrome.tabs.getSelected(null, function(tab) {
             chrome.tabs.sendRequest(tab.id, {
-                angle: 180,
+                angle: 0,
                 rotation: 'flip'
             }, function(response) {});
         });
@@ -53,27 +53,27 @@ function upsideDown() {
 chrome.contextMenus.create({
     "title": "Rotate Right",
     "type": "normal",
-    "contexts": ["all"],
-    "onclick": rotateClockWise()
+    "contexts": ["image"],
+    "onclick": rotateRight()
 });
 
 chrome.contextMenus.create({
     "title": "Rotate Left",
     "type": "normal",
-    "contexts": ["all"],
-    "onclick": rotateCounterClockWise()
+    "contexts": ["image"],
+    "onclick": rotateLeft()
 });
 
 chrome.contextMenus.create({
     "title": "Rorate 180°",
     "type": "normal",
-    "contexts": ["all"],
-    "onclick": upsideDown()
+    "contexts": ["image"],
+    "onclick": rotateDown()
 });
 
 chrome.contextMenus.create({
     "title": "Rorate Reset",
     "type": "normal",
-    "contexts": ["all"],
-    "onclick": upright()
+    "contexts": ["image"],
+    "onclick": rotateReset()
 });
